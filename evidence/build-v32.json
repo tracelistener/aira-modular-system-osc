@@ -1,0 +1,271 @@
+{
+  "status": "BUILD CANDIDATE; OFFLINE VALIDATION PENDING; HARDWARE UNTESTED",
+  "product": "SCOOPER ONLY",
+  "waves": [
+    {
+      "name": "FM",
+      "cell": 10,
+      "bytes": 872,
+      "relocations": 64,
+      "master": 1611176032,
+      "reloc": 1611168288,
+      "pool": "torcido",
+      "records": 98
+    },
+    {
+      "name": "FM+SYNC",
+      "cell": 14,
+      "bytes": 1078,
+      "relocations": 75,
+      "master": 1611176904,
+      "reloc": 1611168544,
+      "pool": "torcido",
+      "records": 124
+    },
+    {
+      "name": "TRI",
+      "cell": 2,
+      "bytes": 854,
+      "relocations": 67,
+      "master": 1611177982,
+      "reloc": 1611168844,
+      "pool": "torcido",
+      "records": 99
+    },
+    {
+      "name": "LOGIC",
+      "cell": 21,
+      "bytes": 836,
+      "relocations": 67,
+      "master": 1611178836,
+      "reloc": 1611169112,
+      "pool": "torcido",
+      "records": 94
+    },
+    {
+      "name": "NOISE SAW",
+      "cell": 13,
+      "bytes": 1204,
+      "relocations": 83,
+      "master": 1611179672,
+      "reloc": 1611169380,
+      "pool": "torcido",
+      "records": 129
+    },
+    {
+      "name": "VOWEL",
+      "cell": 6,
+      "bytes": 1280,
+      "relocations": 94,
+      "master": 1611180876,
+      "reloc": 1611169712,
+      "pool": "torcido",
+      "records": 128
+    },
+    {
+      "name": "CB",
+      "cell": 9,
+      "bytes": 932,
+      "relocations": 75,
+      "master": 1611182156,
+      "reloc": 1611170088,
+      "pool": "torcido",
+      "records": 96
+    }
+  ],
+  "slots": [
+    {
+      "slot": 0,
+      "descriptor": 1611154276,
+      "source": 1611145212,
+      "default_wave": "FM",
+      "bytes": 872
+    },
+    {
+      "slot": 1,
+      "descriptor": 1611154288,
+      "source": 1611146716,
+      "default_wave": "FM+SYNC",
+      "bytes": 1078
+    },
+    {
+      "slot": 2,
+      "descriptor": 1611154300,
+      "source": 1611148220,
+      "default_wave": "TRI",
+      "bytes": 854
+    },
+    {
+      "slot": 3,
+      "descriptor": 1611154336,
+      "source": 1611149724,
+      "default_wave": "LOGIC",
+      "bytes": 836
+    },
+    {
+      "slot": 4,
+      "descriptor": 1611154252,
+      "source": 1611151228,
+      "default_wave": "NOISE SAW",
+      "bytes": 1204
+    },
+    {
+      "slot": 5,
+      "descriptor": 1611154324,
+      "source": 1611152732,
+      "default_wave": "VOWEL",
+      "bytes": 1280
+    }
+  ],
+  "regions": [
+    [
+      555552,
+      555808
+    ],
+    [
+      555808,
+      556108
+    ],
+    [
+      556108,
+      556376
+    ],
+    [
+      556376,
+      556644
+    ],
+    [
+      556644,
+      556976
+    ],
+    [
+      556976,
+      557352
+    ],
+    [
+      557352,
+      557652
+    ],
+    [
+      563296,
+      564168
+    ],
+    [
+      555424,
+      555440
+    ],
+    [
+      564168,
+      565246
+    ],
+    [
+      555440,
+      555456
+    ],
+    [
+      565246,
+      566100
+    ],
+    [
+      555456,
+      555472
+    ],
+    [
+      566100,
+      566936
+    ],
+    [
+      555472,
+      555488
+    ],
+    [
+      566936,
+      568140
+    ],
+    [
+      555488,
+      555504
+    ],
+    [
+      568140,
+      569420
+    ],
+    [
+      555504,
+      555520
+    ],
+    [
+      569420,
+      570352
+    ],
+    [
+      555520,
+      555536
+    ],
+    [
+      532476,
+      533348
+    ],
+    [
+      541544,
+      541548
+    ],
+    [
+      533980,
+      535058
+    ],
+    [
+      541556,
+      541560
+    ],
+    [
+      535484,
+      536338
+    ],
+    [
+      541568,
+      541572
+    ],
+    [
+      536988,
+      537824
+    ],
+    [
+      541604,
+      541608
+    ],
+    [
+      538492,
+      539696
+    ],
+    [
+      541520,
+      541524
+    ],
+    [
+      539996,
+      541276
+    ],
+    [
+      541592,
+      541596
+    ]
+  ],
+  "baseline_sha256": "42691be6964ac05fb1e3751b91f027fd8ff8beecaf3230506c4c780cc1fd1e7e",
+  "application_sha256": "463e1fdfcda22642f95d69f81175317776c833f202f15a9837314f70ebc19ba7",
+  "v2_lineage": {
+    "v2_firmware_sha256": "b9258bf3408f4d8e6437d7c3c4401a47af167824b076189c25e05bbd780432d8",
+    "v2_application_sha256": "bfda2995db6d93717238ca98c64f8ab252bd29af0fd4ecc3e7adc28e2644fc0c",
+    "differing_bytes": 13817,
+    "code_and_hooks_identical": true
+  },
+  "pools": {
+    "torcido_used": 7056,
+    "torcido_size": 7364,
+    "relocs_end": "0x60088254",
+    "bitrazer_masters_end": "0x60088254",
+    "bitrazer_end": "0x60088d3e"
+  },
+  "encoding": "P2 0..6: FM, FM+SYNC, TRI, LOGIC, NOISE SAW, VOWEL, CB; >=7 -> FM",
+  "jacks": "in1 CV IN, in2 FINE IN (1.0 = 1.2 semitones, stock SAW/SQR scale), in3 COLOR IN (+ P3/100), in4 SYNC TRIG IN (rising through 0.3: hard sync; CB strike)"
+}

@@ -1,0 +1,14 @@
+{
+ "restore_target": "unit came back with a leftover test state; restoring your pre-test patch",
+ "fine": {
+  "sys_n60_shift_cents": 60.001,
+  "sqr_n60_shift_cents": 59.991,
+  "sys_n72_shift_cents": 72.0,
+  "sqr_n72_shift_cents": 71.989,
+  "expected_cents": {
+   "n60": 60.0,
+   "n72": 72.0
+  }
+ },
+ "restored": true
+}

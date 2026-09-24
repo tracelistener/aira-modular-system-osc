@@ -1,0 +1,8 @@
+# Keep hashed files byte-exact (SHA256SUMS.txt and the installer compare them)
+firmware/** -text
+presets/** -text
+customizer/files/** -text
+*.BIN binary
+*.bin binary
+*.png binary
+SHA256SUMS.txt -text

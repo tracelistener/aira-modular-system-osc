@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "waves": 7,
+  "wave_transitions": 588,
+  "boot_configurations": 450,
+  "invalid_p2_cases": 60,
+  "cb_round_trips": 36,
+  "callee_registers_and_stack_preserved": true,
+  "stock_loader_mute_send_unmute_call_order": true,
+  "range_table_preserved": true,
+  "limitations": "DSP execution, DMA, NVRAM storage backend, actual USB and hardware audio are not emulated; stock leaf I/O and NVRAM accessors intercepted."
+}

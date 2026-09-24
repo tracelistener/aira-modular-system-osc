@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "firmware_sha256": "03f4f5f8221092dba6aacaa33c98ba1cc1eddeaf96ae254759388ce5460f51a9",
+  "application_sha256": "463e1fdfcda22642f95d69f81175317776c833f202f15a9837314f70ebc19ba7",
+  "diff_vs_v31": {
+    "sites": [
+      "0x82058",
+      "0x82638",
+      "0x82c18",
+      "0x831f8",
+      "0x837d8",
+      "0x83db8",
+      "0x898bc",
+      "0x89c24",
+      "0x8a05a",
+      "0x8a3b0",
+      "0x8a6f4",
+      "0x8aba8",
+      "0x8b0a8"
+    ],
+    "differing_bytes": 39,
+    "change": "0x02222222 (1/120) -> 0x028F5C29 (1/100)"
+  },
+  "boot_header_identical_to_v31_and_v2": true,
+  "unchanged_native_slot_programs": 288,
+  "all_records_native_shapes": true,
+  "preset_changes": {
+    "VOICE_S1M_SYNC_DEMO.bin": [
+      66
+    ]
+  },
+  "records_per_wave": {
+    "FM": 98,
+    "FM+SYNC": 124,
+    "TRI": 99,
+    "LOGIC": 94,
+    "NOISE SAW": 129,
+    "VOWEL": 128,
+    "CB": 96
+  }
+}
