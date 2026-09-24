@@ -4,6 +4,8 @@ This custom firmware brings the SYSTEM-1m's oscillator waves to the SCOOPER. In 
 
 It's unofficial: not made, endorsed or supported by Roland. Flash at your own risk.
 
+![The SYSTEM OSCILLATOR in a Customizer patch, WAVE on FM+SYNC, with an LFO on FINE IN](docs/img/customizer-patch.png)
+
 ## What you get
 
 - **Seven waves on the WAVE knob:** FM, FM+SYNC, TRI, LOGIC, NOISE SAW, VOWEL and CB (cowbell).
