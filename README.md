@@ -4,7 +4,7 @@ This custom firmware brings the SYSTEM-1m's oscillator waves to the SCOOPER. In 
 
 It's unofficial: not made, endorsed or supported by Roland. Flash at your own risk.
 
-![The SYSTEM OSCILLATOR in a Customizer patch, WAVE on FM+SYNC, with an LFO on FINE IN](docs/img/customizer-patch.png)
+![The VOICE_S1M_CB preset in the Customizer: the MIDI gate goes into SYNC TRIG IN to strike the cowbell](docs/img/customizer-patch.png)
 
 ## What you get
 
