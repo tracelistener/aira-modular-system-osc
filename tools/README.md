@@ -26,6 +26,9 @@ Python 3.12 with `numpy`. Some scripts also need `unicorn`, `scipy`, `Pillow` or
 | `cb_model.py`, `plugout.py`, `code1.py`, `render_cb_plugout.py` | CB sound model transcribed from the SYSTEM-1 plug-out, and plug-out helpers. |
 | `picker.py`, `package_selector_v31.py` | Customizer art: SYSTEM OSCILLATOR panel jacks and module-menu page, built from Roland's own glyphs. |
 | `aira_preset.py` | Writes Customizer `.bin` patch files. |
+| `recplay_patch.py` | v3.3: assembles the new input routine (REC/PLAY from the SCATTER gate), places it, and emulates all 32 input cases. |
+| `build_v33.py` | Builds v3.3 from v3.2 and checks that only the input routine changed. |
+| `armdis.py` | Small Thumb-2 disassembly and cross-reference helpers used to trace the button handling. |
 
 ## live/
 
@@ -37,3 +40,6 @@ These scripts drive the SCOOPER over USB. They save and restore the patch on the
 | `v31_hw_test.py`, `v31_hw_test2.py` | The two hardware test passes in [../docs/hardware-test.md](../docs/hardware-test.md). |
 | `analyze_captures.py` | Precise offline re-analysis of the captures. |
 | `v32_check_and_restore.py` | v3.2 FINE IN check, plus the safe restore. Safe restore empties the patch, waits, then rebuilds it; it never overwrites slots in place. |
+| `recplay_probe.py` | Sends 4,000+ MIDI messages to check whether anything already triggers REC/PLAY on stock firmware. Nothing did. |
+| `recplay_watch.py` | Logs everything the unit sends while someone presses the real REC/PLAY button. |
+| `v33_recplay_test.py` | v3.3 hardware test: tap the gate to record and play, check the loop plays, hold the gate to delete. |

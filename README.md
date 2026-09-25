@@ -72,6 +72,23 @@ You need a SCOOPER, the AIRA Modular Customizer (Windows) and Python 3.
 | `VOICE_S1M_SYNC_DEMO.bin` | A stock SAW hard-syncs a SYSTEM TRI while the envelope sweeps the TRI's pitch (classic sync sweep). |
 | `SAFE_EMPTY.bin` | Empty patch. |
 
+## Experimental: REC/PLAY from a jack (v3.3)
+
+**Not tested on hardware yet.** v3.3 is v3.2 plus one change: a gate on the SCOOPER's **SCATTER control input** works the REC/PLAY button. Some people have done this with a hardware jack mod; this does it in firmware.
+
+- **Short trigger or gate:** a press. The first press records, the next one plays.
+- **Held gate:** a hold, which deletes the loop.
+- **Synchronised recording:** keep a clock in **SYNC TRIG**. As with the button, recording waits for the next clock pulse.
+- **Where it is:** in normal SCOOPER use, the **GRF 6 jack**. In Customizer patches, the jack above the SCATTER button on the SCOOPER module.
+- **Trade-off:** that input no longer switches SCATTER. The SCATTER button still does. Everything else is as in v3.2.
+- **Converted units:** BITRAZER, DEMORA and TORCIDO hardware has no REC/PLAY button, so on units switched to SCOOPER this is a way to record.
+
+Firmware: `firmware/experimental/v3.3-recplay/AIRA_MODULAR_UPD.BIN`, SHA-256 `4ba0061925a86ba3806a601f58f57da351c7b41e8ed7b7c49ee09c56bfbca139`.
+
+Don't have a gate high on that jack while powering on. The unit could think REC/PLAY is held and open the overdub setting.
+
+How it works and how it was checked: [docs/recplay-jack.md](docs/recplay-jack.md).
+
 ## DSP load: stay under about 300
 
 A patch that asks for more DSP than the SCOOPER has will hang it: light-blue LED, and you have to power-cycle. The ceiling is about 300 program records.
@@ -106,10 +123,10 @@ A patch that asks for more DSP than the SCOOPER has will hang it: light-blue LED
 
 | Folder | Contents |
 |---|---|
-| `firmware/` | The exact image that was flashed and tested. `SHA256SUMS.txt` lists every file's hash. |
+| `firmware/` | v3.2, the exact image that was flashed and tested. `firmware/experimental/` holds v3.3 (REC/PLAY from a jack), not yet tested on hardware. `SHA256SUMS.txt` lists every file's hash. |
 | `presets/` | Customizer patch files. |
 | `customizer/` | The six changed Customizer files and the installer. |
-| `docs/` | [How it works](docs/how-it-works.md) and the [hardware test results](docs/hardware-test.md). |
+| `docs/` | [How it works](docs/how-it-works.md), the [hardware test results](docs/hardware-test.md) and [REC/PLAY from a jack](docs/recplay-jack.md). |
 | `evidence/` | Raw JSON from the offline audit, the ARM emulation run and the USB hardware tests. |
 | `tools/` | The build and test scripts, as used. See [tools/README.md](tools/README.md). |
 
