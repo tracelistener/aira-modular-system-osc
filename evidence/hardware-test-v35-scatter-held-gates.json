@@ -1,0 +1,34 @@
+{
+  "physical_scatter_held": {
+    "report": "20260930-122408-held-scatter.json",
+    "samples": 6,
+    "scatter_effect": 1,
+    "recplay_gate": 0
+  },
+  "gate_while_scatter_held": {
+    "report": "20260930-122423-gate.json",
+    "samples": 12,
+    "recplay_gate_sequence": [
+      0,
+      1,
+      0
+    ],
+    "scatter_effect": 1
+  },
+  "scatter_released": {
+    "report": "20260930-122455-released-scatter.json",
+    "samples": 6,
+    "scatter_effect": 1,
+    "recplay_gate": 0
+  },
+  "lamp_observation": "User confirmed SCATTER lamp stayed lit through GRF6 gate testing and release.",
+  "grf6_routes_empty": true,
+  "limits": "Telemetry samples confirm stable states; sub-sample transients during button edges are covered by emulation, not directly resolved by these USB snapshots.",
+  "final_scatter_off": {
+    "report": "20260930-122757-idle.json",
+    "samples": 6,
+    "scatter_effect": 0,
+    "recplay_gate": 0,
+    "lamp": "User confirmed off after one further tap"
+  }
+}

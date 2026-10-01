@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "native_bulk_rows": 44,
+  "bulk_read_matches_individual": true,
+  "bulk_write_changes_individual_cable": true,
+  "patch_restored": true,
+  "test_connection": {
+    "source": 0,
+    "target": 10,
+    "empty_slot": 1
+  },
+  "grf6_unrouted": true
+}

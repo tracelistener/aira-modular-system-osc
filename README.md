@@ -72,22 +72,33 @@ You need a SCOOPER, the AIRA Modular Customizer (Windows) and Python 3.
 | `VOICE_S1M_SYNC_DEMO.bin` | A stock SAW hard-syncs a SYSTEM TRI while the envelope sweeps the TRI's pitch (classic sync sweep). |
 | `SAFE_EMPTY.bin` | Empty patch. |
 
-## Experimental: REC/PLAY from a jack (v3.3)
+## Experimental: REC/PLAY from the GRF 6 jack (v3.5)
 
-**Not tested on hardware yet.** v3.3 is v3.2 plus one change: a gate on the SCOOPER's **SCATTER control input** works the REC/PLAY button. Some people have done this with a hardware jack mod; this does it in firmware.
+v3.5 is v3.2 plus one feature: a gate into the **GRF 6 jack** works REC/PLAY, as if you pressed the button. It's tested on one SCOOPER with an Arturia KeyStep 32's GATE output.
 
-- **Short trigger or gate:** a press. The first press records, the next one plays.
-- **Held gate:** a hold, which deletes the loop.
-- **Synchronised recording:** keep a clock in **SYNC TRIG**. As with the button, recording waits for the next clock pulse.
-- **Where it is:** in normal SCOOPER use, the **GRF 6 jack**. In Customizer patches, the jack above the SCATTER button on the SCOOPER module.
-- **Trade-off:** that input no longer switches SCATTER. The SCATTER button still does. Everything else is as in v3.2.
-- **Converted units:** BITRAZER, DEMORA and TORCIDO hardware has no REC/PLAY button, so on units switched to SCOOPER this is a way to record.
+- **Short gate:** a press. The first one records, the next one plays.
+- **Gate held for about 3.5 s:** deletes the loop, the same as holding the button.
+- **REC/PLAY button:** still works. The gate and the button act like two buttons wired together: while one is down, the other can't start a new press.
+- **SCATTER button:** still switches SCATTER, and its lamp shows whether SCATTER is on. Gates never switch SCATTER.
+- **Clock in SYNC TRIG:** the gate goes through the same code as the button. With a clock patched into SYNC TRIG it should wait for the next pulse, just as the button does. This wasn't tested separately.
 
-Firmware: `firmware/experimental/v3.3-recplay/AIRA_MODULAR_UPD.BIN`, SHA-256 `4ba0061925a86ba3806a601f58f57da351c7b41e8ed7b7c49ee09c56bfbca139`.
+**GRF 6 becomes a REC/PLAY input only.** It no longer feeds Customizer patches. Remove every cable from GRF 6 in your patches, including the GRF 6 → SCATTER cable in the default SCOOPER patch.
 
-Don't have a gate high on that jack while powering on. The unit could think REC/PLAY is held and open the overdub setting.
+**Install:** follow the steps under Install, but flash `firmware/experimental/v3.5-grf6-recplay/AIRA_MODULAR_UPD.BIN` instead. Its SHA-256 is `f516953ae85d0b2291db3eb72ed773ba5641acda1f866832eace52f664f7bee8`. The Customizer files are the same as for v3.2.
 
-How it works and how it was checked: [docs/recplay-jack.md](docs/recplay-jack.md).
+**Limits:**
+
+- **Calibration:** the gate levels were set on one SCOOPER with the KeyStep 32. A gate with a much lower voltage might not register while SCATTER is held.
+- **20 ms after SCATTER:** for 20 ms after you press or release SCATTER, the firmware ignores changes on GRF 6. A gate that starts in that window registers late, and one shorter than 20 ms can be missed.
+- **Power-up:** keep the gate low while powering on. A gate held during power-up hasn't been tested.
+- **USB audio:** not tested while USB audio is streaming into the unit.
+- **SCOOPER only,** like v3.2.
+
+**Converted units:** BITRAZER, DEMORA and TORCIDO hardware has no REC/PLAY button. On a unit switched to SCOOPER (for example with [aira-switcher](https://github.com/tracelistener/aira-switcher)), this is a way to record. It hasn't been tested on those units. Switch first, then flash v3.5, because aira-switcher only accepts stock firmware.
+
+**v3.3 is gone.** It only reacted to a gate cabled to the SYNC TRIG input, so REC/PLAY waited for the next gate. It's still in the git history.
+
+How it works and how it was tested: [docs/recplay-jack.md](docs/recplay-jack.md).
 
 ## DSP load: stay under about 300
 
@@ -123,10 +134,10 @@ A patch that asks for more DSP than the SCOOPER has will hang it: light-blue LED
 
 | Folder | Contents |
 |---|---|
-| `firmware/` | v3.2, the exact image that was flashed and tested. `firmware/experimental/` holds v3.3 (REC/PLAY from a jack), not yet tested on hardware. `SHA256SUMS.txt` lists every file's hash. |
+| `firmware/` | v3.2, the exact image that was flashed and tested. `firmware/experimental/` holds v3.5 (REC/PLAY from the GRF 6 jack), tested on one SCOOPER. `SHA256SUMS.txt` lists every file's hash. |
 | `presets/` | Customizer patch files. |
 | `customizer/` | The six changed Customizer files and the installer. |
-| `docs/` | [How it works](docs/how-it-works.md), the [hardware test results](docs/hardware-test.md) and [REC/PLAY from a jack](docs/recplay-jack.md). |
+| `docs/` | [How it works](docs/how-it-works.md), the [hardware test results](docs/hardware-test.md) and [REC/PLAY from the GRF 6 jack](docs/recplay-jack.md). |
 | `evidence/` | Raw JSON from the offline audit, the ARM emulation run and the USB hardware tests. |
 | `tools/` | The build and test scripts, as used. See [tools/README.md](tools/README.md). |
 

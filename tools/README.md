@@ -6,7 +6,7 @@ These are the scripts that built and tested this firmware, copied as they were u
 - The build chain also reads earlier intermediate images.
 - The build needs Roland's official firmware files, which aren't included: AIRA Modular system program 1.05 and SYSTEM-1m 1.30.
 
-Python 3.12 with `numpy`. Some scripts also need `unicorn`, `scipy`, `Pillow` or `mido`.
+Python 3.12 with `numpy`. Some scripts also need `unicorn`, `keystone-engine`, `capstone`, `scipy`, `Pillow` or `mido`.
 
 ## build/
 
@@ -26,8 +26,15 @@ Python 3.12 with `numpy`. Some scripts also need `unicorn`, `scipy`, `Pillow` or
 | `cb_model.py`, `plugout.py`, `code1.py`, `render_cb_plugout.py` | CB sound model transcribed from the SYSTEM-1 plug-out, and plug-out helpers. |
 | `picker.py`, `package_selector_v31.py` | Customizer art: SYSTEM OSCILLATOR panel jacks and module-menu page, built from Roland's own glyphs. |
 | `aira_preset.py` | Writes Customizer `.bin` patch files. |
-| `recplay_patch.py` | v3.3: assembles the new input routine (REC/PLAY from the SCATTER gate), places it, and emulates all 32 input cases. |
-| `build_v33.py` | Builds v3.3 from v3.2 and checks that only the input routine changed. |
+| `recplay_patch.py` | The input routine shared by v3.3 and v3.5 (REC/PLAY = button OR gate): assembles it, places it, and emulates all 32 input cases. |
+| `build_v33.py` | Builds v3.3 from v3.2 and checks that only the input routine changed. v3.3 has been removed from `firmware/`, but v3.5's first step reads its output. |
+| `build_grf6_native_export.py` | v3.5, step 1: v3.2 plus the input routine; moves the GRF 6 DSP store to the register the gate reader uses. |
+| `build_grf6_telemetry.py` | Container and assembler helpers used by the v3.5 builders. It also built a USB telemetry image for measurements. |
+| `build_native_button_diagnostic.py` | Diagnostic image used to measure the button and gate levels. Its diagnostics borrow the Customizer's bulk commands. |
+| `build_grf6_independent.py` | Adds the gate decoder, the SCATTER hook and the lamp change. |
+| `build_grf6_customizer_restored.py` | v3.5, last step: gives the Customizer bulk commands back and removes the diagnostics. |
+| `verify_grf6_independent.py`, `verify_grf6_button_hook.py` | Run the decoder, the SCATTER hook and the lamp code in Unicorn. |
+| `verify_native_rec_debounce.py` | Runs Roland's own REC/PLAY debounce path in Unicorn. It shows why the decoder needs its 20 ms hold. |
 | `armdis.py` | Small Thumb-2 disassembly and cross-reference helpers used to trace the button handling. |
 
 ## live/
@@ -42,4 +49,7 @@ These scripts drive the SCOOPER over USB. They save and restore the patch on the
 | `v32_check_and_restore.py` | v3.2 FINE IN check, plus the safe restore. Safe restore empties the patch, waits, then rebuilds it; it never overwrites slots in place. |
 | `recplay_probe.py` | Sends 4,000+ MIDI messages to check whether anything already triggers REC/PLAY on stock firmware. Nothing did. |
 | `recplay_watch.py` | Logs everything the unit sends while someone presses the real REC/PLAY button. |
-| `v33_recplay_test.py` | v3.3 hardware test: tap the gate to record and play, check the loop plays, hold the gate to delete. |
+| `v33_recplay_test.py` | v3.3 hardware test (historical): tap the gate to record and play, check the loop plays, hold the gate to delete. |
+| `test_grf6_native_direct.py`, `test_grf6_native_short.py` | v3.5 audio test: KeyStep gates into GRF 6 record, play, mute and delete a loop. |
+| `test_grf6_native_bulk.py` | Customizer bulk cable read/write round trip. |
+| `scatter_press_check.py` | SCATTER press check: a tone feeds the looper while you press SCATTER, then the script listens for a loop. |

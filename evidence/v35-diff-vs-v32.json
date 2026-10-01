@@ -1,0 +1,82 @@
+{
+  "v32_firmware_sha256": "03f4f5f8221092dba6aacaa33c98ba1cc1eddeaf96ae254759388ce5460f51a9",
+  "v35_firmware_sha256": "f516953ae85d0b2291db3eb72ed773ba5641acda1f866832eace52f664f7bee8",
+  "v32_application_sha256": "463e1fdfcda22642f95d69f81175317776c833f202f15a9837314f70ebc19ba7",
+  "v35_application_sha256": "3e6df7985bc95fa9779ab045713f21a1d3011e9f72dca0798982a50d933efaf2",
+  "application_bytes": 634936,
+  "application_bytes_differing": 274,
+  "ranges": [
+    {
+      "address": "0x6000025c",
+      "length": 4,
+      "bytes_differing": 4,
+      "purpose": "Branch from the panel event broker into the SCATTER button hook"
+    },
+    {
+      "address": "0x6000aa90",
+      "length": 6,
+      "bytes_differing": 6,
+      "purpose": "SCATTER lamp (LED 5) calls the lamp helper"
+    },
+    {
+      "address": "0x60011138",
+      "length": 14,
+      "bytes_differing": 13,
+      "purpose": "Native GRF 6 gate reader hands its sample to the new decoder"
+    },
+    {
+      "address": "0x6006c66e",
+      "length": 2,
+      "bytes_differing": 2,
+      "purpose": "DSP: GRF 6 producer stores to the gate-reader register A01A instead of the Customizer export A103"
+    },
+    {
+      "address": "0x6006ca24",
+      "length": 2,
+      "bytes_differing": 2,
+      "purpose": "DSP: the old read-back report now stores to A103 (so a GRF 6 cable in a patch no longer carries the jack)"
+    },
+    {
+      "address": "0x60088280",
+      "length": 80,
+      "bytes_differing": 79,
+      "purpose": "Gate decoder: threshold chosen by the SCATTER switch contact (GPIO 15); last result held for 20 ticks after each SCATTER edge"
+    },
+    {
+      "address": "0x60088380",
+      "length": 96,
+      "bytes_differing": 95,
+      "purpose": "SCATTER hook: each physical press toggles the SCATTER setting once; original events forwarded"
+    },
+    {
+      "address": "0x60088480",
+      "length": 12,
+      "bytes_differing": 12,
+      "purpose": "Lamp helper: returns the SCATTER setting"
+    },
+    {
+      "address": "0x60088c00",
+      "length": 20,
+      "bytes_differing": 19,
+      "purpose": "Decoder and hook state"
+    },
+    {
+      "address": "0x6009a0f8",
+      "length": 46,
+      "bytes_differing": 42,
+      "purpose": "Input routine: REC/PLAY = button OR GRF 6 gate (byte-identical to v3.3)"
+    }
+  ],
+  "v35_equals_v32_container_with_v35_application": true,
+  "container_differences_only_inside_application_record": true,
+  "outer_container": {
+    "signature": "ESC91.000",
+    "file_size": 2097168,
+    "image_span": 2097152,
+    "updater_payload_checksum_verified": true,
+    "updater_application_sha256": "39e48a82d7fde0cb948fa9f5c6c241ed5d8ffc415e5bf2766af947426cb8a634",
+    "original_boot_updater_preserved": true,
+    "original_non_application_region_preserved": true
+  },
+  "new_code_location": "Unused BITRAZER area right after the SYSTEM OSC master programs (SCOOPER-only, like v3.2)"
+}
