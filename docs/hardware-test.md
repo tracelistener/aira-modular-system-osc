@@ -1,6 +1,6 @@
 # Hardware test, 2026-09-24
 
-These tests ran on one SCOOPER over USB. Two passes on firmware v3.1 used about 110 audio captures. Then v3.2 was flashed and FINE IN was re-checked. v3.2 differs from v3.1 only in the FINE IN constant, so the other v3.1 results carry over.
+These tests ran on one SCOOPER over USB. Two passes on firmware v3.1 used about 110 audio captures. Then v3.2 was flashed and FINE IN was re-checked. v3.2 differs from v3.1 only in the FINE IN constant, so the other v3.1 results carry over. A DEMORA run from 2026-09-30 is [at the end](#demora-2026-09-30).
 
 ## Method
 
@@ -117,3 +117,40 @@ The CB was hit through SYNC TRIG IN from MIDINOTE's gate. TRI's peak level was 0
 While my script was restoring the user's patch after the tests, it overwrote slots in place. For a moment that stacked two SYSTEM OSCs, an ADSR, an AMP and a MIXER: about 302 records, plus modules not yet unloaded. The unit hung (light-blue LED), and a power cycle recovered it.
 
 This is the DSP-load ceiling described in the README, not a firmware bug. The restore script now empties the patch first, waits, and then rebuilds it.
+
+## DEMORA, 2026-09-30
+
+The same SCOOPER was switched to DEMORA with [aira-switcher](https://github.com/tracelistener/aira-switcher), using the unit's own initialized DEMORA backup. Then v3.2 was flashed on top. The unit answered as a DEMORA (MIDI identity family `0x16`, where the SCOOPER answers `0x18`), and kept doing so after the flash.
+
+The method was the same as above:
+
+- Patches were built over SysEx.
+- The oscillator went through a MIXER straight to the main outputs, with the stock SQR as the reference.
+- Pitch was fitted with the same DTFT line fit.
+
+Raw numbers are in `evidence/hardware-test-v32-demora.json` and `evidence/hardware-test-v32-demora-precise.json`.
+
+| Note | Equal temperament (Hz) | SYSTEM OSC | Stock SQR |
+|---:|---:|---:|---:|
+| 48 | 130.813 | 130.813 (0.00 c) | 130.784 (−0.39 c) |
+| 60 | 261.626 | 261.626 (0.00 c) | 261.567 (−0.38 c) |
+| 72 | 523.251 | 523.251 (0.00 c) | 523.135 (−0.38 c) |
+
+Every wave at note 60:
+
+| Wave | Pitch |
+|---|---:|
+| FM | 0.00 c |
+| FM+SYNC | +0.01 c |
+| TRI | 0.00 c |
+| LOGIC | −0.03 c |
+| NOISE SAW | +3.2 c |
+| VOWEL | −1.0 c |
+| CB (second partial) | 392.02 Hz, hit through SYNC TRIG IN at COLOR 50 |
+
+NOISE SAW and VOWEL read slightly off for the same reason as on the SCOOPER.
+
+- **Two SYSTEM OSCs at once** (TRI and FM): 261.626 Hz, 0.00 c.
+- **Stability:** the unit answered SysEx after every step.
+- **DEMORA's delay:** checked by ear with the delay knobs turned up, and the repeats sounded normal. Before anyone touched the knobs, a burst sent through it at the stored settings came out dry.
+- **Not tested:** native DEMORA hardware, and v3.5, which is SCOOPER-only.

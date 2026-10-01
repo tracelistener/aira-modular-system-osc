@@ -1,6 +1,6 @@
-# SYSTEM OSCILLATOR for the Roland AIRA Modular SCOOPER
+# SYSTEM OSCILLATOR for the Roland AIRA Modular SCOOPER and DEMORA
 
-This custom firmware brings the SYSTEM-1m's oscillator waves to the SCOOPER. In the AIRA Modular Customizer, it takes the place of the FORMANT FILTER module. The wave programs are Roland's own SYSTEM-1m DSP code (firmware 1.30). They're adapted to run on the SCOOPER's DSP, which uses the same chip family.
+This custom firmware brings the SYSTEM-1m's oscillator waves to the SCOOPER, and v3.2 also runs on the DEMORA. In the AIRA Modular Customizer, it takes the place of the FORMANT FILTER module. The wave programs are Roland's own SYSTEM-1m DSP code (firmware 1.30). They're adapted to run on the AIRA Modular's DSP, which uses the same chip family.
 
 It's unofficial: not made, endorsed or supported by Roland. Flash at your own risk.
 
@@ -41,13 +41,25 @@ On a SYSTEM-1, each key press hits it internally. The SCOOPER's module has no ga
 
 **With nothing patched into SYNC TRIG IN, CB is silent.**
 
-## SCOOPER only
+## SCOOPER and DEMORA
 
-One Roland update file (AIRA Modular system program 1.05) serves all four AIRA Modular units: DEMORA, TORCIDO, BITRAZER and SCOOPER. Each unit runs its own part of it. This firmware stores the new wave programs in the space used by the TORCIDO and BITRAZER parts, so on those units it would break their built-in effect. The DEMORA part is untouched, but this firmware has never been tried on a DEMORA. Only flash it on a SCOOPER.
+One Roland update file (AIRA Modular system program 1.05) serves all four AIRA Modular units: DEMORA, TORCIDO, BITRAZER and SCOOPER. Each unit runs its own part of it. This firmware stores the new wave programs in the space used by the TORCIDO and BITRAZER parts, so on those units it would break their built-in effect.
+
+The DEMORA part is untouched. On 2026-09-30, v3.2 was tested on a SCOOPER switched to DEMORA with [aira-switcher](https://github.com/tracelistener/aira-switcher):
+
+- Pitch was exact.
+- All seven waves played, and two SYSTEM OSCs ran at once.
+- DEMORA's own delay still worked.
+
+It hasn't been tried on native DEMORA hardware. Details are in [docs/hardware-test.md](docs/hardware-test.md#demora-2026-09-30).
+
+- **SCOOPER:** v3.2 or v3.5.
+- **DEMORA:** v3.2 only. v3.5's REC/PLAY code is written for the SCOOPER's buttons.
+- **TORCIDO, BITRAZER:** don't flash either.
 
 ## Install
 
-You need a SCOOPER, the AIRA Modular Customizer (Windows) and Python 3.
+You need a SCOOPER or a DEMORA, the AIRA Modular Customizer (Windows) and Python 3.
 
 1. In the Customizer, load `presets/SAFE_EMPTY.bin` and send it to the unit, so it starts up with an empty patch.
 2. Check the firmware hash. It must be `03f4f5f8221092dba6aacaa33c98ba1cc1eddeaf96ae254759388ce5460f51a9`:
@@ -92,7 +104,7 @@ v3.5 is v3.2 plus one feature: a gate into the **GRF 6 jack** works REC/PLAY, as
 - **20 ms after SCATTER:** for 20 ms after you press or release SCATTER, the firmware ignores changes on GRF 6. A gate that starts in that window registers late, and one shorter than 20 ms can be missed.
 - **Power-up:** keep the gate low while powering on. A gate held during power-up hasn't been tested.
 - **USB audio:** not tested while USB audio is streaming into the unit.
-- **SCOOPER only,** like v3.2.
+- **SCOOPER only.** Unlike v3.2, v3.5 doesn't belong on a DEMORA: its REC/PLAY code is written for the SCOOPER's buttons.
 
 **Converted units:** BITRAZER, DEMORA and TORCIDO hardware has no REC/PLAY button. On a unit switched to SCOOPER (for example with [aira-switcher](https://github.com/tracelistener/aira-switcher)), this is a way to record. It hasn't been tested on those units. Switch first, then flash v3.5, because aira-switcher only accepts stock firmware.
 

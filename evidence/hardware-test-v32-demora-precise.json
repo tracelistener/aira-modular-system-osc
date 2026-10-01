@@ -1,0 +1,63 @@
+{
+  "method": "Hann-windowed DTFT line fit (same as tools/live/analyze_captures.py)",
+  "pitch": [
+    {
+      "note": 48,
+      "et_hz": 130.813,
+      "tri_hz": 130.813,
+      "tri_cents": -0.0,
+      "sqr_hz": 130.784,
+      "sqr_cents": -0.39
+    },
+    {
+      "note": 60,
+      "et_hz": 261.626,
+      "tri_hz": 261.626,
+      "tri_cents": -0.0,
+      "sqr_hz": 261.567,
+      "sqr_cents": -0.38
+    },
+    {
+      "note": 72,
+      "et_hz": 523.251,
+      "tri_hz": 523.251,
+      "tri_cents": 0.0,
+      "sqr_hz": 523.135,
+      "sqr_cents": -0.38
+    }
+  ],
+  "waves": {
+    "FM": {
+      "hz": 261.626,
+      "cents": 0.0
+    },
+    "FMSYNC": {
+      "hz": 261.626,
+      "cents": 0.01
+    },
+    "TRI": {
+      "hz": 261.626,
+      "cents": -0.0
+    },
+    "LOGIC": {
+      "hz": 261.622,
+      "cents": -0.03
+    },
+    "NOISE_SAW": {
+      "hz": 262.111,
+      "cents": 3.21
+    },
+    "VOWEL": {
+      "hz": 261.47,
+      "cents": -1.03
+    },
+    "CB_second_partial": {
+      "hz": 392.019,
+      "expected_hz": 391.92
+    }
+  },
+  "two_sys_tri_fm": {
+    "hz": 261.626,
+    "cents": 0.0
+  }
+}

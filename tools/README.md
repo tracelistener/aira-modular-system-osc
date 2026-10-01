@@ -53,3 +53,5 @@ These scripts drive the SCOOPER over USB. They save and restore the patch on the
 | `test_grf6_native_direct.py`, `test_grf6_native_short.py` | v3.5 audio test: KeyStep gates into GRF 6 record, play, mute and delete a loop. |
 | `test_grf6_native_bulk.py` | Customizer bulk cable read/write round trip. |
 | `scatter_press_check.py` | SCATTER press check: a tone feeds the looper while you press SCATTER, then the script listens for a loop. |
+| `demora_osc_test.py` | v3.2 on a DEMORA: TRI vs the stock SQR at three notes, every wave, two SYSTEM OSCs at once, and a burst through DEMORA's effect. |
+| `aira_any.py` | `aira_live.Aira` for any AIRA Modular model. It reads the model byte from the identity reply (SCOOPER `0x18`, DEMORA `0x16`) and uses it for patch SysEx. |

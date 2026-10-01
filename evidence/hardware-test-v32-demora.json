@@ -1,0 +1,185 @@
+{
+  "identity": [
+    126,
+    16,
+    6,
+    2,
+    65,
+    22,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "pitch": [
+    {
+      "note": 48,
+      "tri_f0": 130.8162,
+      "sqr_f0": 130.7851,
+      "tri_rms": 0.00576,
+      "tri_cents_et": 0.05,
+      "sqr_cents_et": -0.37,
+      "tri_cents_vs_sqr": 0.41
+    },
+    {
+      "note": 60,
+      "tri_f0": 261.6474,
+      "sqr_f0": 261.5652,
+      "tri_rms": 0.00576,
+      "tri_cents_et": 0.14,
+      "sqr_cents_et": -0.4,
+      "tri_cents_vs_sqr": 0.54
+    },
+    {
+      "note": 72,
+      "tri_f0": 523.2898,
+      "sqr_f0": 522.9896,
+      "tri_rms": 0.00576,
+      "tri_cents_et": 0.13,
+      "sqr_cents_et": -0.87,
+      "tri_cents_vs_sqr": 0.99
+    }
+  ],
+  "waves": [
+    {
+      "label": "B_wave_FM",
+      "note": 60,
+      "f0": 261.6452,
+      "rms": 0.00706,
+      "peak": 0.01,
+      "state": "signal",
+      "cents_et": 0.13,
+      "wave": "FM"
+    },
+    {
+      "label": "B_wave_FMSYNC",
+      "note": 60,
+      "f0": 261.6495,
+      "rms": 0.00706,
+      "peak": 0.01,
+      "state": "signal",
+      "cents_et": 0.16,
+      "wave": "FM+SYNC"
+    },
+    {
+      "label": "B_wave_TRI",
+      "note": 60,
+      "f0": 261.6493,
+      "rms": 0.00576,
+      "peak": 0.0099,
+      "state": "signal",
+      "cents_et": 0.16,
+      "wave": "TRI"
+    },
+    {
+      "label": "B_wave_LOGIC",
+      "note": 60,
+      "f0": 262.2783,
+      "rms": 0.00857,
+      "peak": 0.0121,
+      "state": "signal",
+      "cents_et": 4.31,
+      "wave": "LOGIC"
+    },
+    {
+      "label": "B_wave_NOISE_SAW",
+      "note": 60,
+      "f0": 262.0541,
+      "rms": 0.00577,
+      "peak": 0.0103,
+      "state": "signal",
+      "cents_et": 2.83,
+      "wave": "NOISE SAW"
+    },
+    {
+      "label": "B_wave_VOWEL",
+      "note": 60,
+      "f0": 261.588,
+      "rms": 0.00751,
+      "peak": 0.0241,
+      "state": "signal",
+      "cents_et": -0.25,
+      "wave": "VOWEL"
+    },
+    {
+      "label": "B_wave_CB",
+      "note": 60,
+      "rms_before": 1.5e-05,
+      "rms_after_strike": 8.6e-05,
+      "peak": 0.0122,
+      "wave": "CB"
+    }
+  ],
+  "alive": [
+    [
+      "setup",
+      true
+    ],
+    [
+      "pitch",
+      true
+    ],
+    [
+      "wave FM",
+      true
+    ],
+    [
+      "wave FM+SYNC",
+      true
+    ],
+    [
+      "wave TRI",
+      true
+    ],
+    [
+      "wave LOGIC",
+      true
+    ],
+    [
+      "wave NOISE SAW",
+      true
+    ],
+    [
+      "wave VOWEL",
+      true
+    ],
+    [
+      "wave CB",
+      true
+    ],
+    [
+      "two SYSTEM OSCs",
+      true
+    ],
+    [
+      "effect",
+      true
+    ]
+  ],
+  "two_sys": {
+    "label": "C_two_sys",
+    "note": 60,
+    "f0": 261.6337,
+    "rms": 0.0033,
+    "peak": 0.0051,
+    "state": "signal"
+  },
+  "effect_direct": {
+    "before": 1.5e-05,
+    "burst": 0.005588,
+    "tail_0.7_1.4": 1.5e-05,
+    "tail_1.4_2.2": 1.5e-05,
+    "tail_2.2_3.0": 1.5e-05
+  },
+  "effect_path": {
+    "before": 1.5e-05,
+    "burst": 0.005578,
+    "tail_0.7_1.4": 1.5e-05,
+    "tail_1.4_2.2": 1.5e-05,
+    "tail_2.2_3.0": 1.5e-05
+  },
+  "patch_restored": true
+}
